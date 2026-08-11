@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeSupply — Supplier Query Management</title>
+  <meta name="description" content="SafeSupply: A premium B2B SaaS supplier query management system with a focus on food safety compliance.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- App Shell -->
+  <div class="app-layout">
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar" aria-label="Main Navigation">
+      <div class="sidebar-brand">
+        <div class="brand-logo" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">SafeSupply</span>
+          <span class="brand-subtitle">Supplier Queries</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Primary navigation">
+        <button class="nav-item" data-view="dashboard" id="nav-dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item active" data-view="suppliers" id="nav-suppliers">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Suppliers</span>
+        </button>
+        <button class="nav-item" data-view="queries" id="nav-queries">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+          <span>Queries</span>
+          <span class="badge badge-accent" id="nav-queries-count">3</span>
+        </button>
+        <button class="nav-item" data-view="reports" id="nav-reports">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+          <span>Reports</span>
+        </button>
+        <button class="nav-item" data-view="settings" id="nav-settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-status">
+          <div class="status-dot online"></div>
+          <span>All Systems Operational</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Container -->
+    <div class="main-container">
+
+      <!-- Top Bar Header -->
+      <header class="topbar" aria-label="Global Header">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Sidebar Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+          <div class="breadcrumbs">
+            <span class="breadcrumb-item" id="breadcrumb-parent">SafeSupply</span>
+            <svg class="breadcrumb-separator" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            <span class="breadcrumb-item active" id="breadcrumb-current">Suppliers</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Global Search -->
+          <div class="global-search-container">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" placeholder="Search suppliers, queries..." id="global-search" class="search-input" aria-label="Global Search">
+          </div>
+
+          <!-- Notifications -->
+          <button class="icon-button" aria-label="Notifications" id="notification-bell">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="notification-indicator"></span>
+          </button>
+
+          <!-- User Profile Widget -->
+          <div class="user-profile-widget">
+            <div class="avatar">
+              <span class="avatar-text">PR</span>
+            </div>
+            <div class="user-info">
+              <span class="user-name">Pranav Reddy</span>
+              <span class="user-role">QA Manager</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area — dynamically rendered by app.js -->
+      <main class="main-content" id="content-container"></main>
+
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- App Script (plain, NOT a module, so it runs synchronously after DOM) -->
+  <script src="/app.js"></script>
+</body>
+</html>
